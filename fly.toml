@@ -1,0 +1,20 @@
+# fly.toml app configuration file generated for coffe-store-eme-fragrant-waterfall-4289 on 2025-10-05T12:07:56+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'coffe-store-eme-fragrant-waterfall-4289'
+primary_region = 'cdg'
+
+[build]
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  size = 'shared-cpu-1x'
