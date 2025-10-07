@@ -1,18 +1,18 @@
-# Imagen base ligera de Python
-FROM python:3.13-slim
+# Imagen base de Python
+FROM python:3.11-slim
 
-# Crea y define el directorio de trabajo
+# Crear directorio de trabajo
 WORKDIR /app
 
-# Copia dependencias e instálalas
+# Copiar dependencias y código
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia el código de la aplicación
-COPY ./app ./app
+COPY . .
 
-# Expone el puerto donde correrá FastAPI
+# Exponer el puerto
 EXPOSE 8000
 
-# Comando para iniciar el servidor
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Comando de ejecución
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
