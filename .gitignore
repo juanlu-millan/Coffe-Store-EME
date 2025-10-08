@@ -149,7 +149,7 @@ terraform/terraform.tfvars
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup  
 terraform/terraform-key.json
-
+terraform/.terraform/
 # Spyder project settings
 .spyderproject
 .spyproject
