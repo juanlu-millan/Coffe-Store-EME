@@ -10,7 +10,8 @@ terraform {
 }
 
 provider "google" {
-  project     = var.project_id
-  region      = var.region
-  credentials = file(var.credentials_path) # alternativa: usar Workload Identity / GOOGLE_CREDENTIALS env
+  credentials = file("terraform-key.json")
+  project     = "coffee-eme"
+  region      = "europe-west1"
 }
+

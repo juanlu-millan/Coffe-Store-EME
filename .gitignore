@@ -146,6 +146,9 @@ venv.bak/
 
 # Terraform variables sensibles
 terraform/terraform.tfvars
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup  
+terraform/terraform-key.json
 
 # Spyder project settings
 .spyderproject

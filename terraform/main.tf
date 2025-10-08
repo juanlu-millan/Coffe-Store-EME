@@ -1,60 +1,66 @@
-# Artifact Registry (Docker)
+###########################################################
+# Main Terraform file para Coffee EME
+# Despliega:
+#  - Artifact Registry (Docker)
+#  - Service Account para CI/CD
+#  - Roles IAM necesarios
+#  - Cloud Run service con URL pública
+###########################################################
+
+# Artifact Registry para Docker
 resource "google_artifact_registry_repository" "docker_repo" {
-  location      = var.region
-  repository_id = var.artifact_repo
+  location      = "europe-west1"
+  repository_id = "coffee-eme-repo"
   format        = "DOCKER"
-  description   = "Docker repo for FastAPI"
+  description   = "Docker repo for Coffee EME"
 }
 
-# CI Service Account
+# Service Account para CI/CD
 resource "google_service_account" "ci" {
   account_id   = "ci-deployer"
-  description  = "CI service account to push images and deploy"
+  display_name = "CI/CD Service Account"
 }
 
-# Grant roles (artifact push + cloud run admin)
+# IAM roles para la Service Account
 resource "google_project_iam_member" "artifact_writer" {
-  project = var.project_id
+  project = "coffee-eme"
   role    = "roles/artifactregistry.writer"
   member  = "serviceAccount:${google_service_account.ci.email}"
 }
 
 resource "google_project_iam_member" "run_admin" {
-  project = var.project_id
+  project = "coffee-eme"
   role    = "roles/run.admin"
   member  = "serviceAccount:${google_service_account.ci.email}"
 }
 
-# Cloud Run service
-resource "google_cloud_run_service" "fastapi" {
-  name     = var.service_name
-  location = var.region
+# Cloud Run Service
+resource "google_cloud_run_service" "coffee_eme" {
+  name     = "coffee-eme"
+  location = "europe-west1"
 
   template {
     spec {
       containers {
-        image = "${var.region}-docker.pkg.dev/${var.project_id}/${google_artifact_registry_repository.docker_repo.repository_id}/${var.service_name}:${var.image_tag}"
+        image = "europe-west1-docker.pkg.dev/coffee-eme/${google_artifact_registry_repository.docker_repo.repository_id}/coffee-eme:latest"
         ports {
           container_port = 8080
         }
-        env {
-          name  = "PORT"
-          value = "8080"
-        }
+        # NO declarar PORT aquí, Cloud Run lo asigna automáticamente
       }
     }
   }
 
   traffic {
-    percent = 100
+    percent         = 100
     latest_revision = true
   }
 }
 
-# Make service public (para pruebas; en prod usar IAM controlado)
+# Hacer el servicio público para pruebas
 resource "google_cloud_run_service_iam_member" "invoker" {
-  service  = google_cloud_run_service.fastapi.name
-  location = google_cloud_run_service.fastapi.location
+  service  = google_cloud_run_service.coffee_eme.name
+  location = google_cloud_run_service.coffee_eme.location
   role     = "roles/run.invoker"
   member   = "allUsers"
 }
