@@ -145,11 +145,12 @@ env.bak/
 venv.bak/
 
 # Terraform variables sensibles
-terraform/terraform.tfvars
-terraform/terraform.tfstate
-terraform/terraform.tfstate.backup  
-terraform/terraform-key.json
-/.terraform/.terraform/providers/registry.terraform.io/hashicorp/google/7.6.0/windows_amd64/terraform-provider-google_v7.6.0_x5.exe
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+terraform.tfvars
+terraform-key.json
 
 # Spyder project settings
 .spyderproject
