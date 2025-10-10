@@ -150,7 +150,7 @@ terraform/terraform.tfstate
 terraform/terraform.tfstate.backup  
 terraform/terraform-key.json
 terraform/.terraform/providers/registry.terraform.io/hashicorp/google/7.6.0/windows_amd64/terraform-provider-google_v7.6.0_x5.exe
-
+.terraform/
 # Spyder project settings
 .spyderproject
 .spyproject
