@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee EME ☕</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', path='logo.jpg') }}" alt="Coffee EME" class="logo">
+    </header>
+
+    <div class="page-container">
+        <main class="content container">
+            <h1>Coffee EME</h1>
+            <p>El sabor del café auténtico, directo a tu puerta.</p>
+            <img src="{{ url_for('static', path='img-example-coffe.jpg') }}" alt="Coffee Example" class="img_presentation">
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2025 Coffee EME. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>
