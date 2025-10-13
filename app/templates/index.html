@@ -4,18 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee EME ☕</title>
-    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <header>
-        <img src="{{ url_for('static', path='logo.jpg') }}" alt="Coffee EME" class="logo">
+        <img src="/static/logo-web.jpg" alt="Coffee EME" class="logo">
+
+        <!-- Barra de búsqueda -->
+        <form class="search-form" action="/search" method="get">
+            <input type="text" name="q" placeholder="Buscar cafés..." class="search-input">
+            <button type="submit" class="search-button">Buscar</button>
+        </form>
     </header>
 
     <div class="page-container">
         <main class="content container">
-            <h1>Coffee EME</h1>
-            <p>El sabor del café auténtico, directo a tu puerta.</p>
-            <img src="{{ url_for('static', path='img-example-coffe.jpg') }}" alt="Coffee Example" class="img_presentation">
+            <h1>¡El sabor del café auténtico, directo a tu puerta!</h1>
+            <img src="/static/img-example-coffe.jpg" alt="Coffee Example" class="img_presentation">
         </main>
     </div>
 
@@ -23,5 +28,4 @@
         <p>© 2025 Coffee EME. Todos los derechos reservados.</p>
     </footer>
 </body>
-
 </html>

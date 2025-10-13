@@ -6,39 +6,78 @@ body {
     color: #3e2723;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* importante para footer */
+    min-height: 100vh;
     text-align: center;
 }
 
-/* Header con logo a la izquierda */
+/* Header con logo a la izquierda y buscador centrado */
 header {
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 20px 40px;
+    flex-wrap: wrap; /* Permite que los elementos bajen en pantallas pequeñas */
 }
 
 .logo {
-    width: 250px;
-    height: 250px;
+    width: 120px;
+    height: 120px;
     border-radius: 100%;
     object-fit: cover;
-    background-color: #c0a080; /* placeholder */
-    margin: 0; /* quitar centrado automático */
+    background-color: #c0a080;
 }
 
+/* Barra de búsqueda centrada */
+.search-form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 8px 12px;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid #6f4e37;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #3e2723;
+}
+
+.search-button {
+    padding: 10px 60px;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    background-color: #6f4e37;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #3e2723;
+}
+
+/* Imagen principal */
 .img_presentation {
-    max-width: 50%;
     height: auto;
-    border: #f6efdd 10px solid;
+    width: 90%;
+    max-width: 80%;
+    border: #ffffff 8px solid;
 }
 
 .page-container {
     display: flex;
     flex-direction: column;
-    flex: 1; /* ocupa espacio restante */
+    flex: 1;
 }
 
-/* Contenido centrado vertical y horizontalmente */
 .content {
     flex: 1;
     display: flex;
@@ -58,25 +97,8 @@ header {
 h1 {
     margin-bottom: 10px;
     font-size: 2rem;
-}
-
-p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #6f4e37;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background 0.3s ease;
-}
-
-.button:hover {
-    background-color: #3e2723;
+    font-family: Andale Mono, monospace !important;
+    font-weight: bold;
 }
 
 footer {
@@ -89,4 +111,202 @@ footer {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 MODO RESPONSIVE */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-form {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-input {
+        width: 60%;
+        font-size: 0.9rem;
+    }
+
+    .search-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin: 1rem;
+    }
+
+    .img_presentation {
+        width: 95%;
+    }
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6efdd;
+    font-family: "Poppins", sans-serif;
+    color: #3e2723;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Header con logo a la izquierda y buscador centrado */
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    flex-wrap: wrap; /* Permite que los elementos bajen en pantallas pequeñas */
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    object-fit: cover;
+    background-color: #c0a080;
+}
+
+/* Barra de búsqueda centrada */
+.search-form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 8px 12px;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid #6f4e37;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #3e2723;
+}
+
+.search-button {
+    padding: 10px 60px;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    background-color: #6f4e37;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #3e2723;
+}
+
+/* Imagen principal */
+.img_presentation {
+    height: auto;
+    width: 90%;
+    max-width: 1600px;
+    border: #ffffff 8px solid;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    animation: fadeIn 1s ease;
+}
+
+.container p {
+    color: #7b6d62;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-family: Andale Mono, monospace !important;
+    font-weight: bold;
+}
+
+footer {
+    font-size: 0.5rem;
+    color: #7b6d62;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 MODO RESPONSIVE */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-form {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .search-input {
+        width: 60%;
+        font-size: 0.9rem;
+    }
+
+    .search-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin: 1rem;
+    }
+
+    .img_presentation {
+        width: 95%;
+    }
 }

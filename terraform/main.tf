@@ -42,11 +42,10 @@ resource "google_cloud_run_service" "coffee_eme" {
   template {
     spec {
       containers {
-        image = "europe-west1-docker.pkg.dev/coffee-eme/${google_artifact_registry_repository.docker_repo.repository_id}/coffee-eme:latest"
+        image = "europe-west1-docker.pkg.dev/coffee-eme/coffee-eme-repo/coffee-eme:v10"
         ports {
           container_port = 8080
         }
-        # NO declarar PORT aquí, Cloud Run lo asigna automáticamente
       }
     }
   }
