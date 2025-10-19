@@ -152,6 +152,7 @@ venv.bak/
 terraform.tfvars
 terraform-key.json
 
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -169,6 +170,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Test-Readme.md
 
 # pytype static type analyzer
 .pytype/
