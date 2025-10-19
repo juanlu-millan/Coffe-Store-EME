@@ -1,7 +1,7 @@
 # ☕ Coffee EME
 
 **Coffee EME** es un proyecto minimalista y funcional desarrollado con **FastAPI**, desplegado en **Google Cloud Run** mediante **Terraform**.  
-Representa la base de una tienda online de café artesanal, con un frontend limpio, responsive y una arquitectura moderna orientada a microservicios y CI/CD.
+Representa la base de una tienda online (Todavia en construcción) de café artesanal con un frontend limpio, responsive y una arquitectura moderna orientada a microservicios y CI/CD.
 
 ---
 
